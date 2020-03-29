@@ -1,0 +1,4 @@
+# Project exclude paths
+/CourseRate/target/
+/PredictWeather/target/
+/WeatherService/target/

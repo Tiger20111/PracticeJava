@@ -1,0 +1,32 @@
+Manifest-Version: 1.0
+Main-Class: application2.Application
+Class-Path: log4j-api-2.11.2.jar spring-boot-starter-tomcat-2.1.6.RELEAS
+ E.jar spring-boot-starter-web-2.1.6.RELEASE.jar spring-beans-5.1.8.RELE
+ ASE.jar jackson-databind-2.9.9.jar dom4j-2.1.1.jar javax.activation-api
+ -1.2.0.jar spring-boot-autoconfigure-2.1.6.RELEASE.jar jackson-datatype
+ -jsr310-2.9.9.jar logback-classic-1.2.3.jar jandex-2.0.5.Final.jar spri
+ ng-boot-starter-logging-2.1.6.RELEASE.jar antlr-2.7.7.jar aspectjweaver
+ -1.9.4.jar spring-test-5.1.8.RELEASE.jar hibernate-validator-6.0.17.Fin
+ al.jar spring-aspects-5.1.8.RELEASE.jar tomcat-embed-core-9.0.21.jar sp
+ ring-jcl-5.1.8.RELEASE.jar HikariCP-3.2.0.jar plexus-cipher-1.4.jar spr
+ ing-boot-starter-json-2.1.6.RELEASE.jar jaxb-api-2.3.1.jar spring-orm-5
+ .1.8.RELEASE.jar hibernate-commons-annotations-5.0.4.Final.jar slf4j-ap
+ i-1.7.26.jar spring-tx-5.1.8.RELEASE.jar spring-web-5.1.8.RELEASE.jar s
+ onar-maven-plugin-3.6.0.1398.jar spring-data-commons-2.1.9.RELEASE.jar 
+ javax.persistence-api-2.2.jar plexus-sec-dispatcher-1.4.jar jackson-cor
+ e-2.9.9.jar tomcat-embed-websocket-9.0.21.jar spring-aop-5.1.8.RELEASE.
+ jar spring-expression-5.1.8.RELEASE.jar classmate-1.4.0.jar spring-boot
+ -starter-aop-2.1.6.RELEASE.jar validation-api-2.0.1.Final.jar h2-1.4.20
+ 0.jar snakeyaml-1.23.jar javax.annotation-api-1.3.2.jar sonar-scanner-a
+ pi-2.12.0.1661.jar javassist-3.23.2-GA.jar jackson-annotations-2.9.0.ja
+ r spring-jdbc-5.1.8.RELEASE.jar log4j-to-slf4j-2.11.2.jar jboss-logging
+ -3.3.2.Final.jar hibernate-core-5.3.10.Final.jar spring-core-5.1.8.RELE
+ ASE.jar javax.transaction-api-1.3.jar spring-context-5.1.8.RELEASE.jar 
+ jackson-module-parameter-names-2.9.9.jar tomcat-embed-el-9.0.21.jar log
+ back-core-1.2.3.jar spring-webmvc-5.1.8.RELEASE.jar commons-lang-2.6.ja
+ r spring-boot-starter-jdbc-2.1.6.RELEASE.jar byte-buddy-1.9.13.jar jack
+ son-datatype-jdk8-2.9.9.jar spring-boot-2.1.6.RELEASE.jar plexus-utils-
+ 3.0.22.jar jul-to-slf4j-1.7.26.jar spring-boot-starter-2.1.6.RELEASE.ja
+ r spring-boot-starter-data-jpa-2.1.6.RELEASE.jar spring-data-jpa-2.1.9.
+ RELEASE.jar
+
