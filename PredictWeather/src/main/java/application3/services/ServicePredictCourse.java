@@ -1,5 +1,6 @@
 package application3.services;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import java.io.BufferedReader;
@@ -14,12 +15,15 @@ import java.util.Random;
 import static application3.services.libs.Utils.FormatDate;
 import static application3.services.libs.Utils.numDaysLeft;
 
-
 @Component
 public class ServicePredictCourse {
   ServicePredictCourse() {
 
   }
+
+  @Value("${spring.application.urlWeather}")
+  private String urlWeather;
+
 
   Double makePrediction(String data) throws Exception {
   double course = 0.0;
@@ -119,6 +123,5 @@ public class ServicePredictCourse {
 
   }
 
-  private String urlWeather = "http://weather:8082/";
   private String urlCourse = "http://course:8081/";
 }
