@@ -19,7 +19,7 @@ public class ServiceRBC {
   }
 
   public String getData() {
-    ResponseEntity<String> response = restTemplate.getForEntity(url, String.class);
+    ResponseEntity<String> response = restTemplate.getForEntity(urlExport, String.class);
 
     return response.getBody();
   }
@@ -157,6 +157,6 @@ public class ServiceRBC {
     return maxCourse;
   }
 
-  private String url = "http://export.rbc.ru/free/selt.0/free.fcgi?period=DAILY&tickers=USD000000TOD&d1=01&m1=07&y1=2019&d2=01&m2=10&y2=2019&separator=TAB&data_format=BROWSER";
+  private String urlExport = "http://export.rbc.ru/free/selt.0/free.fcgi?period=DAILY&tickers=USD000000TOD&d1=01&m1=07&y1=2019&d2=01&m2=10&y2=2019&separator=TAB&data_format=BROWSER";
   private final RestTemplate restTemplate;
 }

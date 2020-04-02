@@ -3,18 +3,26 @@ services:
   course:
     container_name: course-rate
     image: course-rate
-    build: .
+    build:
+      context:
+        CourseRate
+      dockerfile: Dockerfile
     ports:
     - "8081:8081"
   weather:
     container_name: weather-tempreture
     image: weather-tempreture
-    build: .
+    build:
+      context:
+        WeatherService
+      dockerfile: Dockerfile
     ports:
     - "8082:8082"
   prediction:
     container_name: predict-weather
     image: predict-weather
-    build: .
+    build:
+      context: PredictWeather
+      dockerfile: Dockerfile
     ports:
-    - "8083:8083"
+    - "8080:8080"

@@ -38,7 +38,7 @@ public class ServicePredictCourse {
   }
 
   private ArrayList<DependencyDollarWeather> getDollarsBD() throws IOException {
-    String url = "http://localhost:8081/course/bd";
+    String url = urlCourse + "course/bd";
     String dataBD = getUrl(url);
     ArrayList<DependencyDollarWeather> dependencyDollarWeathers = new ArrayList<>();
     for (String dollarRate : dataBD.split("#")) {
@@ -52,7 +52,7 @@ public class ServicePredictCourse {
   }
 
   private Double getCourseBd(String data) throws IOException {
-    String url = "http://localhost:8081/course/";
+    String url = urlCourse + "course/";
     url = url + data;
     String textResponse = getUrl(url);
     double course = 0.0;
@@ -64,7 +64,9 @@ public class ServicePredictCourse {
     return course;
   }
 
-  private String getUrl(String url) throws IOException {
+  public String getUrl(String url) throws IOException {
+    StringBuffer response = null;
+    try {
 
     URL obj = new URL(url);
     HttpURLConnection connection = (HttpURLConnection) obj.openConnection();
@@ -73,18 +75,21 @@ public class ServicePredictCourse {
 
     BufferedReader in = new BufferedReader(new InputStreamReader(connection.getInputStream()));
     String inputLine;
-    StringBuffer response = new StringBuffer();
+    response = new StringBuffer();
 
     while ((inputLine = in.readLine()) != null) {
       response.append(inputLine);
     }
     in.close();
 
+    } catch (Exception e) {
+      throw new RuntimeException("wrong address");
+    }
     return response.toString();
   }
 
   private Double getTemperatureDate(String date) throws IOException {
-    String url = "http://localhost:8082/weather/";
+    String url = urlWeather + "weather/";
     url = url + date;
 
     String temperature = getUrl(url);
@@ -114,4 +119,6 @@ public class ServicePredictCourse {
 
   }
 
+  private String urlWeather = "http://weather:8082/";
+  private String urlCourse = "http://course:8081/";
 }
