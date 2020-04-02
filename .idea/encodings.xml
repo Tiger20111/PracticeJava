@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding">
+    <file url="file://$PROJECT_DIR$" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/CourseRate" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/CourseRate/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/PredictWeather" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/PredictWeather/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/WeatherService" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/WeatherService/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />
   </component>
 </project>

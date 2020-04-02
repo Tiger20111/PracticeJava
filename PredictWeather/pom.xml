@@ -13,17 +13,6 @@
 
     <dependencies>
         <dependency>
-            <groupId>tiger201111</groupId>
-            <artifactId>WeatherService</artifactId>
-            <version>0.1.0</version>
-        </dependency>
-        <dependency>
-            <groupId>tiger201111</groupId>
-            <artifactId>CourseRate</artifactId>
-            <version>0.1.0</version>
-            <scope>compile</scope>
-        </dependency>
-        <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-test</artifactId>
             <version>${spring.version}</version>

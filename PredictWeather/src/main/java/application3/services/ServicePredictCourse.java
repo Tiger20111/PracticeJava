@@ -17,12 +17,14 @@ import static application3.services.libs.Utils.numDaysLeft;
 
 @Component
 public class ServicePredictCourse {
-  ServicePredictCourse() {
 
+  ServicePredictCourse() {
   }
 
-  @Value("${spring.application.urlWeather}")
-  private String urlWeather;
+  void setServiceUrls(String urlWeather, String urlCourse) {
+    this.urlWeather = urlWeather;
+    this.urlCourse = urlCourse;
+  }
 
 
   Double makePrediction(String data) throws Exception {
@@ -87,7 +89,7 @@ public class ServicePredictCourse {
     in.close();
 
     } catch (Exception e) {
-      throw new RuntimeException("wrong address");
+      throw new RuntimeException("wrong address: " + url);
     }
     return response.toString();
   }
@@ -123,5 +125,6 @@ public class ServicePredictCourse {
 
   }
 
-  private String urlCourse = "http://course:8081/";
+  private String urlWeather;
+  private String urlCourse;
 }
