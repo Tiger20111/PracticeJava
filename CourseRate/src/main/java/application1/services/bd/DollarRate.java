@@ -8,7 +8,7 @@ import static application1.services.libs.Utils.FormatData;
 
 
 @Entity
-@Table(name = "DOLLAR")
+@Table(name = "dollar")
 public class DollarRate {
 
 

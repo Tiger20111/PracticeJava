@@ -6,7 +6,7 @@ import java.util.Date;
 import static application2.services.libs.Utils.FormatData;
 
 @Entity
-@Table(name = "WEATHER")
+@Table(name = "weather")
 public class WeatherRate {
 
 
