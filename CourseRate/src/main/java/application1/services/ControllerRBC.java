@@ -1,6 +1,8 @@
 package application1.services;
 
-import application1.tests.bd.DollarRepository;
+
+import application1.services.bd.DollarRate;
+import application1.services.bd.DollarRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -35,11 +37,12 @@ public class ControllerRBC {
 
   @RequestMapping(value = "/course/upload", method = GET)
   public String uploadDataBaseDollars() throws Exception {
-    String body = service.getData();
-    if (body == null) {
-      throw new RuntimeException("404");
-    }
-    return service.saveMonthDollars(body, dollarRepository);
+    //String body = service.getData();
+    //if (body == null) {
+      //throw new RuntimeException("404");
+    //}
+//    return service.saveMonthDollars(body, dollarRepository);
+    return service.saveExamplesBd(dollarRepository);
   }
 
   @RequestMapping(value = "/course/current", method = GET)
@@ -60,6 +63,12 @@ public class ControllerRBC {
     return service.getCourseDay(dollarRepository, data);
   }
 
+  @RequestMapping(value = "/course/work", method = GET)
+  public String work() throws Exception {
+    DollarRate dollarRate = new DollarRate("30.07.2019", 35.0);
+    dollarRepository.save(dollarRate);
+    return "Work";
+  }
   private final ServiceRBC service;
 }
 

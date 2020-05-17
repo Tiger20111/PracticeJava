@@ -33,13 +33,14 @@ public class Utils {
   }
 
   public static String formatDateFromDollarPrint(String date) throws Exception {
+
     //принимает в формате yyyy-mm-dd
     String year;
     String month;
     String day;
     year = date.substring(0, 4);
-    month = date.substring(6, 7);
-    day = date.substring(9, 10);
+    month = date.substring(5, 7);
+    day = date.substring(8, 10);
     if (day.length() == 1) {
       day = '0' + day;
     }
