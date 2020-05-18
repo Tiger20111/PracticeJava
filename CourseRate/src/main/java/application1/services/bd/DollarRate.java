@@ -13,16 +13,16 @@ public class DollarRate {
 
 
   @Id
-  @GeneratedValue(strategy=GenerationType.AUTO)
+  @GeneratedValue(strategy=GenerationType.IDENTITY)
   private long id;
-  private Date data;
+  private Date date;
   private Double course;
 
 
   protected DollarRate() {}
 
-  public DollarRate(String data, Double course) throws Exception {
-    this.data = FormatData(data); // принимает в формате "yyyy/MM/dd"
+  public DollarRate(String date, Double course) throws Exception {
+    this.date = FormatData(date);
     this.course = course;
   }
 
@@ -30,8 +30,8 @@ public class DollarRate {
   public Double getPercentage() {
     return course;
   }
-  public Date getData() {
-    return data;
+  public Date getDate() {
+    return date;
   }
 
   public void setPercentage(double course) {
@@ -42,6 +42,6 @@ public class DollarRate {
   public String toString() {
     return String.format(
             "DollarRate[id=%d, data='%s', course='%s']",
-            id, data, course);
+            id, date, course);
   }
 }

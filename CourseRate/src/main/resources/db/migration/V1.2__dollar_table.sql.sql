@@ -1,5 +1,5 @@
 CREATE TABLE IF NOT EXISTS dollar (
-    id integer,
+    ID BIGINT NOT NULL PRIMARY KEY,
     date varchar(255),
     course double precision
 );
