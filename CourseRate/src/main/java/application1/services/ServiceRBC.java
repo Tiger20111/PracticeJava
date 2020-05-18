@@ -28,8 +28,10 @@ public class ServiceRBC {
   }
 
   String saveExamplesBd(DollarRepository dollarRepository) throws Exception {
+    if (dollarRepository.count() != 0) {
+      return "Already updated";
+    }
     ArrayList<DollarRate> dollarRates = new ArrayList<>();
-
     dollarRates.add(new DollarRate(formatDateFromDollarPrint("2020-05-08"), 33.0));
     dollarRates.add(new DollarRate(formatDateFromDollarPrint("2020-05-09"), 32.0));
     dollarRates.add(new DollarRate(formatDateFromDollarPrint("2020-05-10"), 34.0));
@@ -68,7 +70,8 @@ public class ServiceRBC {
     try {
       DollarRate dollarRate = dollarRepository.findByDate(date);
       if (dollarRate == null) {
-        saveMonthDollars(getData(), dollarRepository);
+        //saveMonthDollars(getData(), dollarRepository);
+        saveExamplesBd(dollarRepository);
         dollarRate = dollarRepository.findByDate(date);
         if (dollarRate == null) {
           return "no data in base";
