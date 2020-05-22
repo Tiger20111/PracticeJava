@@ -57,6 +57,10 @@
             <artifactId>sonar-maven-plugin</artifactId>
             <version>3.6.0.1398</version>
         </dependency>
+        <dependency>
+            <groupId>io.micrometer</groupId>
+            <artifactId>micrometer-registry-prometheus</artifactId>
+        </dependency>
 
     </dependencies>
 

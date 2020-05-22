@@ -1,0 +1,32 @@
+- hosts: prediction-server
+  remote_user: edumfti
+  become: yes
+
+  vars:
+    ansible_become_user: root
+    ansible_become_password: aNSHaPi
+
+  tasks:
+    - name: Delete last version of directoreis and create a new one for temperature service
+      shell: rm -rf ./edu/protsenko && mkdir -p edu/protsenko/prediction && mkdir -p edu/protsenko/prediction/target
+
+    - name: cp prediction service
+      copy:
+        src: ../Predict/target/PredictWeather-0.1.0.jar
+        dest: edu/protsenko/prediction/target
+
+    - name: Copy Dockerfile for temperature service
+      copy:
+        src: ../PredictWeather/Dockerfile
+        dest: edu/anastasia/temperature
+
+    - name: Load image for prediction service
+      docker_image:
+        name: predict-weather
+        build:
+          path: ./edu/protsenko/prediction
+          pull: yes
+        source: build
+
+    - name: Run Dockerfile for prediction service
+      shell: sudo docker run -d predict-weather
