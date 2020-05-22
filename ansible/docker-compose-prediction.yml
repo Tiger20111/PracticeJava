@@ -1,0 +1,19 @@
+version: '3'
+services:
+  rbc:
+    container_name: predict-weather
+    image: predict-weather
+
+    ports:
+      - "8083:8083"
+    networks:
+      vpcbr:
+        ipv4_address: 10.5.0.7
+
+
+networks:
+  vpcbr:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 10.5.0.0/16
