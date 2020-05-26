@@ -7,8 +7,14 @@
     ansible_become_password: cHONtic
 
   tasks:
-    - name: Delete last version of directoreis and create a new one for rate and weather services
-      shell: rm -rf ./edu/protsenko && mkdir -p edu/protsenko/rate && mkdir -p edu/protsenko/weather && edu/protsenko/rate/target && edu/protsenko/weather/rate
+    - name: Delete last version of directoreis
+      shell: rm -rf ./edu/protsenko && mkdir -p edu/protsenko/
+
+    - name:  create a directories for rate and weather services
+      shell: mkdir -p edu/protsenko/rate && mkdir -p edu/protsenko/weather
+
+    - name: create directories for jars
+      shell: mkdir -p edu/protsenko/rate/target && mkdir -p edu/protsenko/weather/rate
 
     - name: Copy rate service
       copy:
@@ -29,22 +35,6 @@
       copy:
         src: ../CourseRate/Dockerfile
         dest: edu/protsenko/rate
-
-    - name: Load image for rate service
-      docker_image:
-        name: course-rate
-        build:
-          path: ./edu/protsenko/rate
-          pull: yes
-        source: build
-
-    - name: Load image for weather service
-      docker_image:
-        name: weather-tempreture
-        build:
-          path: ./edu/protsenko/weather
-          pull: yes
-        source: build
 
     - name: Copy docker-compose-rate-weather file
       copy:

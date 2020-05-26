@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rate-kube
+  namespace: default
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: rate-kube
+  template:
+    metadata:
+      name: rate-kube
+      labels:
+        app: rate-kube
+    spec:
+      containers:
+        - name: rate-kube
+          env:
+            - name: POSTGRES_USER
+              valueFrom:
+                configMapKeyRef:
+                  name: postgres-config
+                  key: postgres_user
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                configMapKeyRef:
+                  name: postgres-config
+                  key: postgres_password
+          image: course-rate
+          imagePullPolicy: IfNotPresent

@@ -3,6 +3,9 @@ services:
   weather:
     image: weather-tempreture
     container_name: weather-tempreture
+    build:
+      context: weather
+      dockerfile: Dockerfile
     ports:
       - "8082:8082"
     networks:
@@ -11,6 +14,9 @@ services:
   course:
     image: course-rate
     container_name: course-rate
+    build:
+      context: rate
+      dockerfile: Dockerfile
     depends_on:
       - dbpostgresql
     ports:

@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: predict-kube
+  namespace: default
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: predict-kube
+  template:
+    metadata:
+      name: predict-kube
+      labels:
+        app: predict-kube
+    spec:
+      containers:
+        - name: predict-kube
+          image: predict-weather
+          imagePullPolicy: IfNotPresent

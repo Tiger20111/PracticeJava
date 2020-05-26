@@ -1,0 +1,24 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: ingress
+spec:
+  rules:
+    - host: tiger.kube.rate
+      http:
+        paths:
+          - backend:
+              serviceName: kube-rate
+              servicePort: 8081
+    - host: tiger.kube.weather
+      http:
+        paths:
+          - backend:
+              serviceName: kube-weather
+              servicePort: 8082
+    - host: ellen.kube.ml
+      http:
+        paths:
+          - backend:
+              serviceName: kube-ml
+              servicePort: 8080

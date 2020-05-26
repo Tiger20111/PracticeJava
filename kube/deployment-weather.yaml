@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: weather-kube
+  namespace: default
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: weather-kube
+  template:
+    metadata:
+      name: weather-kube
+      labels:
+        app: weather-kube
+    spec:
+      containers:
+        - name: weather-kube
+          image: weather-tempreture
+          imagePullPolicy: IfNotPresent

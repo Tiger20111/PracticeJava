@@ -7,26 +7,26 @@
     ansible_become_password: aNSHaPi
 
   tasks:
-    - name: Delete last version of directoreis and create a new one for temperature service
-      shell: rm -rf ./edu/protsenko && mkdir -p edu/protsenko/prediction && mkdir -p edu/protsenko/prediction/target
+    - name: Delete last version of directoreis
+      shell: rm -rf ./edu/protsenko
+
+    - name: Create a folders for prediction service
+      shell: mkdir -p edu/protsenko && mkdir -p edu/protsenko/prediction && mkdir -p edu/protsenko/prediction/target
 
     - name: cp prediction service
       copy:
-        src: ../Predict/target/PredictWeather-0.1.0.jar
+        src: ../PredictWeather/target/PredictWeather-0.1.0.jar
         dest: edu/protsenko/prediction/target
 
-    - name: Copy Dockerfile for temperature service
+    - name: Copy Dockerfile for prediction service
       copy:
         src: ../PredictWeather/Dockerfile
-        dest: edu/anastasia/temperature
+        dest: edu/protsenko/prediction
 
-    - name: Load image for prediction service
-      docker_image:
-        name: predict-weather
-        build:
-          path: ./edu/protsenko/prediction
-          pull: yes
-        source: build
+    - name: Copy docker-compose-prediction file
+      copy:
+        src: ./docker-compose-prediction.yml
+        dest: edu/protsenko/prediction
 
-    - name: Run Dockerfile for prediction service
-      shell: sudo docker run -d predict-weather
+    - name: Run the docker-compose-prediction file
+      shell: sudo docker-compose -f ./edu/protsenko/prediction/docker-compose-prediction.yml up -d
